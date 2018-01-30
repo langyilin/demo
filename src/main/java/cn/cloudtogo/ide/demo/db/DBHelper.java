@@ -25,7 +25,7 @@ public class DBHelper {
             Class.forName(DRIVER);
             conn = DriverManager.getConnection(String.format("jdbc:mysql://%s:3306/mysql?useSSL=false",null == System.getenv().get("MYSQL_HOST")? MYSQLHOST:System.getenv().get("MYSQL_HOST")),
                     null == System.getenv().get("MYSQL_USER")?USER:System.getenv().get("MYSQL_USER"),
-                    null == System.getenv().get("PWD")?PASSWORD:System.getenv().get("PWD"));
+                    null == System.getenv().get("MYSQL_PWD")?PASSWORD:System.getenv().get("MYSQL_PWD"));
             pst = conn.prepareStatement(sql);
         } catch (Exception e) {
             e.printStackTrace();
