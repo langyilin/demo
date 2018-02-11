@@ -11,10 +11,10 @@ import java.sql.SQLException;
  **/
 public class DBHelper {
 
-    public static final String MYSQLHOST = "localhost";
+    public static final String MYSQLHOST = "10.10.12.8";
     public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     public static final String USER = "root";
-    public static final String PASSWORD = "123456";
+    public static final String PASSWORD = "Aa123456";
 
 
     public Connection conn = null;
@@ -23,7 +23,7 @@ public class DBHelper {
     public DBHelper(String sql) {
         try {
             Class.forName(DRIVER);
-            conn = DriverManager.getConnection(String.format("jdbc:mysql://%s:3306/mysql?useSSL=false",null == System.getenv().get("MYSQL_HOST")? MYSQLHOST:System.getenv().get("MYSQL_HOST")),
+            conn = DriverManager.getConnection(String.format("jdbc:mysql://%s:3306/template?useSSL=false",null == System.getenv().get("MYSQL_HOST")? MYSQLHOST:System.getenv().get("MYSQL_HOST")),
                     null == System.getenv().get("MYSQL_USER")?USER:System.getenv().get("MYSQL_USER"),
                     null == System.getenv().get("MYSQL_PWD")?PASSWORD:System.getenv().get("MYSQL_PWD"));
             pst = conn.prepareStatement(sql);
